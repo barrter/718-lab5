@@ -8,7 +8,6 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -18,7 +17,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: us-east-2
 
       - name: Sync to S3
-        run: aws s3 sync . s3://YOUR_BUCKET_NAME --exclude ".git*" --exclude ".github/*" --delete
+        run: aws s3 sync . s3://teakgetman-it718-static-242046727644-2026 --exclude ".git*" --exclude ".github/*" --delete
